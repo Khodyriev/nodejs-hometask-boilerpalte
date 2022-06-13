@@ -17,33 +17,33 @@ const getFighterData = (data, res, next) => {
 
 router.get(
     '/',
-    (req, res, next) => getFighterData(fighterService.getFighters(), res, next),
+    (req, res, next) => getFighterData(FighterService.getFighters(), res, next),
     middleware
 );
 
 router.get(
     '/:id',
-    (req, res, next) => getFighterData(fighterService.getFighterById(req.params.id), res, next),
+    (req, res, next) => getFighterData(FighterService.getFighterById(req.params.id), res, next),
     middleware
 );
 
 router.post(
     '/',
     createFighterValid,
-    (req, res, next) => getFighterData(fighterService.addFighter(req.body), res, next),
+    (req, res, next) => getFighterData(FighterService.addFighter(req.body), res, next),
     middleware
 );
 
 router.put(
     '/:id',
     updateFighterValid,
-    (req, res, next) => getFighterData(fighterService.updateFighter(req.params.id, req.body), res, next),
+    (req, res, next) => getFighterData(FighterService.updateFighter(req.params.id, req.body), res, next),
     middleware
 );
 
 router.put(
     '/:id',
-    (req, res, next) => getFighterData(fighterService.deleteFighter(req.params.id), res, next),
+    (req, res, next) => getFighterData(FighterService.deleteFighter(req.params.id), res, next),
     (req, res, next) => {
         if (res.data.length) {
             res.data = { message: `Fighter with id: ${id} deleted` };

@@ -20,33 +20,33 @@ const getUserData = (data, res, next) => {
 
 router.get(
   '/',
-  (req, res, next) => getUserData(userService.getUsers(), res, next),
+  (req, res, next) => getUserData(UserService.getUsers(), res, next),
   middleware
 );
 
 router.get(
   '/:id',
-  (req, res, next) => getUserData(userService.getUserById(req.params.id), res, next),
+  (req, res, next) => getUserData(UserService.getUserById(req.params.id), res, next),
   middleware
 );
 
 router.post(
   '/',
   createUserValid,
-  (req, res, next) => getUserData(userService.addUser(req.body), res, next),
+  (req, res, next) => getUserData(UserService.addUser(req.body), res, next),
   middleware
 );
 
 router.put(
   '/:id',
   updateUserValid,
-  (req, res, next) => getUserData(userService.updateUser(req.params.id, req.body), res, next),
+  (req, res, next) => getUserData(UserService.updateUser(req.params.id, req.body), res, next),
   middleware
 );
 
 router.put(
   '/:id',
-  (req, res, next) => getUserData(userService.deleteUser(req.params.id), res, next),
+  (req, res, next) => getUserData(UserService.deleteUser(req.params.id), res, next),
   (req, res, next) => {
       if (res.data.length) {
           res.data = { message: `User with id: ${id} deleted` };
