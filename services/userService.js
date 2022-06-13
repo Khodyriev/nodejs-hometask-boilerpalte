@@ -9,7 +9,7 @@ class UserService {
       };
 
       getUserById(id) {          //GET /api/users/:id
-        return UserRepository.getOne(id);
+        return UserRepository.getOne({ id });
        };
 
        updateUserData(id, data) {               //POST /api/users
@@ -21,7 +21,7 @@ class UserService {
        };
 
        deleteUser(id) {                         //DELETE /api/users/:id
-        return UserRepository.delete(id);
+        return UserRepository.delete({ id });
        };
 
 

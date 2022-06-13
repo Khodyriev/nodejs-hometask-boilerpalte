@@ -8,7 +8,7 @@ class FighterService {
        };
  
        getFighterById(id) {          //GET /api/fighters/:id
-         return FighterRepository.getOne(id);
+         return FighterRepository.getOne({ id });
         };
  
         updateFighterData(id, data) {               //POST /api/fighters
@@ -20,7 +20,7 @@ class FighterService {
         };
  
         deleteFighter(id) {                         //DELETE /api/fighters/:id
-         return FighterRepository.delete(id);
+         return FighterRepository.delete({ id });
         };
  
 }
